@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Buscar Productos{% endblock %}
+
+{% block content %}
+    <div class="search-container">
+        <h2>Buscar Reviews</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="query" placeholder="Buscar por juego">
+            <button type="submit">Buscar</button>
+        </form>
+        <ul>
+            {% for producto in resultados %}
+                <li>{{ producto.nombre }} - {{ producto.precio }}</li>
+            {% empty %}
+                <li>No se encontraron resultados.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

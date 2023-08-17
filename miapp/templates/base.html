@@ -1,0 +1,34 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'miapp/css/styles.css' %}">
+    <title>{% block title %}Mi Sitio{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Games Reviews</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'insertar_datos' %}">Escribe tu Reseña</a></li>
+                <li><a href="{% url 'buscar' %}">Buscar Reseñas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>Maximo Lasa &copy; CoderHouse</p>
+    </footer>
+</body>
+</html>
